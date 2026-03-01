@@ -31,6 +31,19 @@ sudo chmod +x setup_wazuh.sh
 sudo ./deploy_wazuh.sh
 ```
 
+## ♻️ Recovery & Reinstallation Guide
+
+If a deployment fails due to a network timeout (common on hotspots) or a system hang, follow these steps to reset the environment properly. **Do not simply re-run the script without cleaning the package locks first.**
+
+### 1. Clean Termination
+If the script is hanging and RX bytes have flatlined for >10 minutes:
+1. Press `Ctrl + C` to stop the active installer.
+2. Force-clear the Linux package manager locks:
+   ```bash
+   sudo rm /var/lib/dpkg/lock-frontend
+   sudo rm /var/lib/apt/lists/lock
+   sudo dpkg --configure -a
+
 ## 🛠️ Common Errors and Fixes
 
 | Symptom / Error | Root Cause | Resolution |

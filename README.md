@@ -19,7 +19,7 @@ This project provides a "single-command" deployment solution that handles the Wa
 ### Usage
 1. **Download Repo**:
 ```bash
-sudo git clone <repo>
+sudo https://github.com/mrblue223/Wazuh_lab.git
 ```
 
 2. **Make it executable:**

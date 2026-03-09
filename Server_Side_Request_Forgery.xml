@@ -1,0 +1,10 @@
+<group name="web,ssrf,owasp_a10">
+  <rule id="100014" level="11">
+    <if_sid>31100</if_sid>
+    <url>169.254.169.254|localhost|127.0.0.1|metadata.google.internal</url>
+    <description>OWASP A10: SSRF attempt targeting internal metadata or loopback</description>
+    <mitre>
+      <id>T1557</id>
+    </mitre>
+  </rule>
+</group>

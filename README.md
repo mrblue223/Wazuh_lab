@@ -3,7 +3,7 @@
 **Developed by:** mrblue
 **Version:** 2.0.0  
 **Target Environment:** Kali Linux / Debian-based Research Labs
-
+**NOTE:** This sript is made for technical, and non technical people to faciliate the use of installing a SIEM whcih can be quite a tedious process.
 ---
 
 ## 📝 Description
@@ -27,18 +27,18 @@ It is specifically designed to be "junior-friendly," allowing non-technical user
 Ensure you are on a Debian-based system (Kali Linux is recommended).
 
 ```bash
-nano wazuh-deploy.sh
+nano Wazuh-Lab-Orchestrator.sh
 # Paste the script content and save (Ctrl+O, Enter, Ctrl+X)
 ```
 
 ### 2. Set Permissions
 ```bash
-chmod +x wazuh-deploy.sh
+chmod +x Wazuh-Lab-Orchestrator.sh
 ```
 
 ### 3. Run the Orchestrator
 ```bash
-sudo ./wazuh-deploy.sh
+sudo ./Wazuh-Lab-Orchestrator.sh
 ```
 
 ## 🛠️ Menu Options

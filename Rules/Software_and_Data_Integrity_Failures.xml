@@ -1,0 +1,10 @@
+<group name="web,integrity_failure,owasp_a08">
+  <rule id="100018" level="12">
+    <if_sid>31100</if_sid>
+    <match>rO0AB|Tzo|YTo|TzoyM|pyO</match>
+    <description>OWASP A08: Potential Insecure Deserialization payload detected in request</description>
+    <mitre>
+      <id>T1190</id>
+    </mitre>
+  </rule>
+</group>

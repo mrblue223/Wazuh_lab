@@ -1,0 +1,10 @@
+<group name="web,injection,owasp_a03">
+  <rule id="100012" level="13">
+    <if_sid>31103</if_sid>
+    <regex>SELECT|UNION|INSERT|SLEEP\(|&&|;|system\(|exec\(|<script>|</script></regex>
+    <description>OWASP A03: SQL, Command Injection, or XSS attempt detected</description>
+    <mitre>
+      <id>T1059</id>
+    </mitre>
+  </rule>
+</group>

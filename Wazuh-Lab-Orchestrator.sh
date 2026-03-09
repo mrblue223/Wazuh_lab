@@ -2,7 +2,7 @@
 
 # ==============================================================================
 # SCRIPT NAME:  Wazuh-Lab-Orchestrator (MIRS-WAZUH)
-# AUTHOR:       Sammy Majorique Gaston Roy
+# AUTHOR:       mrblue
 # VERSION:      2.0.0
 # DESCRIPTION:  A simplified, menu-driven deployment script for Wazuh Central.
 #               Designed for academic labs and security research environments.

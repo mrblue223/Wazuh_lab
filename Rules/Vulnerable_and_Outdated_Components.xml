@@ -1,0 +1,10 @@
+<group name="web,recon,owasp_a06">
+  <rule id="100013" level="7">
+    <if_sid>31100</if_sid>
+    <url>/.well-known/|/phpinfo.php|/README.txt|/LICENSE.txt</url>
+    <description>OWASP A06: Reconnaissance targeting potentially outdated components</description>
+    <mitre>
+      <id>T1592</id>
+    </mitre>
+  </rule>
+</group>

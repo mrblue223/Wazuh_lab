@@ -1,0 +1,10 @@
+<group name="web,access_control,owasp_a01">
+  <rule id="100010" level="10">
+    <if_sid>31100</if_sid>
+    <url>/etc/passwd|/etc/shadow|/etc/hosts|/config/settings.json|/admin/config</url>
+    <description>OWASP A01: Potential Path Traversal or IDOR attempt on sensitive resource</description>
+    <mitre>
+      <id>T1595</id>
+    </mitre>
+  </rule>
+</group>

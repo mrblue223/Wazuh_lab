@@ -1,0 +1,10 @@
+<group name="web,crypto_failure,owasp_a02">
+  <rule id="100011" level="12">
+    <if_sid>31100</if_sid>
+    <match>alg":"none"|alg":"HS256"|alg":"none"</match>
+    <description>OWASP A02: JWT Algorithm Confusion or 'None' Attack detected (Related to JWTrike research)</description>
+    <mitre>
+      <id>T1550</id>
+    </mitre>
+  </rule>
+</group>

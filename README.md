@@ -1,6 +1,6 @@
 # 🛡️ Wazuh-Lab-Orchestrator (MIRS-WAZUH)
 
-**Developed by:** Sammy Majorique Gaston Roy  
+**Developed by:** mrblue
 **Version:** 2.0.0  
 **Target Environment:** Kali Linux / Debian-based Research Labs
 

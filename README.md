@@ -1,77 +1,55 @@
-# Wazuh SOC-Defender Automated Deployment 🛡️
+# 🛡️ Wazuh-Lab-Orchestrator (MIRS-WAZUH)
 
-A professional-grade Bash utility designed to automate the installation and configuration of the **Wazuh Security Stack (v4.10.3)**. This script is optimized for SOC Lab environments where resource management and deployment consistency are critical.
-
-## 📋 Project Overview
-This project provides a "single-command" deployment solution that handles the Wazuh Indexer, Server, and Dashboard. It ensures that the core analysis engines—including `wazuh-analysisd` and `wazuh-logcollector`—are verified and active upon completion.
-
-
+**Developed by:** Sammy Majorique Gaston Roy  
+**Version:** 2.0.0  
+**Target Environment:** Kali Linux / Debian-based Research Labs
 
 ---
 
-## 🚀 Deployment Instructions
+## 📝 Description
+The **Wazuh-Lab-Orchestrator** is a simplified, menu-driven deployment utility designed to automate the installation of a full Wazuh central stack. This tool was built to support advanced security research, including APT attack chain simulation, network segmentation monitoring, and integration with tools like **Suricata** and **Wazuh EDR**.
 
-### Prerequisites
-* **System**: Ubuntu 22.04+ (Noble/Jammy).
-* **Privileges**: Root/Sudo access (enforced by script).
-* **Network**: Active internet connection (Bridge or NAT).
-
-### Usage
-1. **Download Repo**:
-```bash
-sudo https://github.com/mrblue223/Wazuh_lab.git
-```
-
-2. **Make it executable:**
-```bash
-sudo chmod +x setup_wazuh.sh
-```
-3. **Execute with sudo:**
-```bash
-sudo ./deploy_wazuh.sh
-```
-
-## ♻️ Recovery & Reinstallation Guide
-
-If a deployment fails due to a network timeout (common on hotspots) or a system hang, follow these steps to reset the environment properly. **Do not simply re-run the script without cleaning the package locks first.**
-
-### 1. Clean Termination
-If the script is hanging and RX bytes have flatlined for >10 minutes:
-1. Press `Ctrl + C` to stop the active installer.
-2. Force-clear the Linux package manager locks:
-   ```bash
-   sudo rm /var/lib/dpkg/lock-frontend
-   sudo rm /var/lib/apt/lists/lock
-   sudo dpkg --configure -a
-
-## 🛠️ Common Errors and Fixes
-
-| Symptom / Error | Root Cause | Resolution |
-| :--- | :--- | :--- |
-| `Unit wazuh-dashboard.service could not be found` | The service is not registered until the very end of the installation. | **Wait for the log finish line.** Monitor progress with `sudo tail -f /var/log/wazuh-install.log`. |
-| **Download is extremely slow or "stuck"** | High network latency or hotspot throttling. | Check real-time throughput: `watch -n 2 "ip -s link show enp0s8 \| grep -A 1 RX"`. |
-| **System Load Average > 7.0** | Intensive CPU usage during package unpacking and Java/Node.js optimization. | This is normal for single-node installs. Ensure the VM has at least 2 cores and 4GB RAM. |
-| **Dashboard "Not Ready" in browser** | The service is running, but internal plugins are still initializing. | Wait 3–5 minutes after the service starts before attempting to log in. |
+It is specifically designed to be "junior-friendly," allowing non-technical users or students to deploy a professional-grade SIEM/XDR environment with a single command.
 
 ---
 
-## 💡 Helpful Commands Reference
+## 🚀 Features
+* **All-in-One Deployment:** Installs the Wazuh Indexer, Server, and Dashboard automatically.
+* **Interactive Menu:** Easy-to-use interface for installation, status monitoring, and credential recovery.
+* **Dependency Management:** Automatically handles `curl`, `tar`, and permission checks.
+* **Lab-Ready:** Ideal for environments involving **TryHackMe** practice, **CEH v13 AI** study, and **Cybersecurity AEC** coursework.
 
-### 1. Wazuh Service Management
-* **Check all internal daemons**: `sudo /var/ossec/bin/wazuh-control status`
-* **Check high-level system services**: `systemctl status wazuh-manager wazuh-indexer wazuh-dashboard --short`
-* **Restart the Manager core**: `sudo /var/ossec/bin/wazuh-control restart`
+---
 
-### 2. Live Monitoring & Logs
-* **Follow installation progress**: `sudo tail -f /var/log/wazuh-install.log`
-* **View real-time engine alerts**: `sudo tail -f /var/ossec/logs/alerts/alerts.log`
-* **Monitor system resources**: `top` or `htop`
+## 💻 Installation & Usage
 
-### 3. Network & Connectivity
-* **Check IP/Interface status**: `ip a` or `ip -s link`
-* **Test external connectivity**: `ping -c 4 google.com`
-* **Verify Dashboard is listening (Port 443)**: `sudo ss -tulpn | grep 443`
+### 1. Create the Script
+Ensure you are on a Debian-based system (Kali Linux is recommended).
 
-### 4. Configuration Checks
-* **Test Manager config for errors**: `sudo /var/ossec/bin/wazuh-analysisd -t`
-* **Verify Filebeat connection**: `filebeat test output`
+```bash
+nano wazuh-deploy.sh
+# Paste the script content and save (Ctrl+O, Enter, Ctrl+X)
+```
+
+### 2. Set Permissions
+```bash
+chmod +x wazuh-deploy.sh
+```
+
+### 3. Run the Orchestrator
+```bash
+sudo ./wazuh-deploy.sh
+```
+
+## 🛠️ Menu Options
+- **Full Installation:** Downloads the Wazuh assistant and executes a complete unattended installation.
+- **Check Status:** Verifies if the wazuh-manager service is active and running.
+- **Retrieve Passwords:** Extracts the auto-generated admin credentials from the installation archive.
+- **Exit:** Safely exits the orchestrator.
+
+## ⚠️ Requirements & Warnings
+- **Hardware:** Minimum 4GB RAM (8GB+ recommended for lab stability).
+- **Permissions:** Requires Root/Sudo privileges to modify system services and network sockets.
+- **Connectivity:** Requires an active internet connection to fetch the latest Wazuh packages.
+
+

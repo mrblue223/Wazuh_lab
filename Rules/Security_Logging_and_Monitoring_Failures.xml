@@ -1,0 +1,10 @@
+<group name="sysmon,monitoring_failure,owasp_a09">
+  <rule id="100019" level="12">
+    <if_sid>61603</if_sid>
+    <field name="win.eventdata.commandLine">wevtutil.exe  cl|Clear-EventLog|Stop-Service wazuh</field>
+    <description>OWASP A09: Critical Security Log Deletion or Monitoring Service Stop detected</description>
+    <mitre>
+      <id>T1070.001</id>
+    </mitre>
+  </rule>
+</group>

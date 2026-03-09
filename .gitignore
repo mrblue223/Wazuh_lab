@@ -1,0 +1,14 @@
+# Wazuh Artifacts
+wazuh-install-files.tar
+wazuh-passwords.txt
+*.log
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Secrets (Crucial for Lab Security)
+*.pem
+*.key
+local_settings.json

@@ -1,0 +1,10 @@
+<group name="web,misconfig,owasp_a05">
+  <rule id="100016" level="9">
+    <if_sid>31100</if_sid>
+    <url>/phpmyadmin|/wp-admin/install.php|/console/|/manager/html</url>
+    <description>OWASP A05: Attempted access to default administrative/setup interfaces</description>
+    <mitre>
+      <id>T1078</id>
+    </mitre>
+  </rule>
+</group>

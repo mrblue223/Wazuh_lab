@@ -1,0 +1,10 @@
+<group name="web,insecure_design,owasp_a04">
+  <rule id="100015" level="8">
+    <if_sid>31100</if_sid>
+    <url>/swagger-ui.html|/v2/api-docs|/developer/test-creds|/internal/debug</url>
+    <description>OWASP A04: Access to sensitive API/Dev documentation (Insecure Design)</description>
+    <mitre>
+      <id>T1592</id>
+    </mitre>
+  </rule>
+</group>
